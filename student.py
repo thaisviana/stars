@@ -1,11 +1,15 @@
 class Student():
     def __init__(self, name=None, last_name=None, email=None, age=None, telephone=None, interest_courses=None, student_id=None,
                  education=None, started_studying_to_ENEM=None, public_school=None, school_evaluation=None, times_exam_taken=None,
-                 daily_time_of_dedication=None, gender=None, family_income=None, cep=None, city=None, state=None, source_of_online_study=None):
+                 daily_time_of_dedication=None, gender=None, family_income=None, cep=None, city=None, state=None, source_of_online_study=None,
+                 guardian_name=None, guardian_email=None, guardian_telephone=None, favorite_school_subject=None):
         self.name = name
         self.last_name = last_name
         self.email = email
         self.telephone = telephone
+        self.guardian_name = guardian_name
+        self.guardian_email = guardian_email
+        self.guardian_telephone = guardian_telephone
         self.age = age
         self.gender = gender
         self.cep = cep
@@ -13,6 +17,7 @@ class Student():
         self.state = state
         self.student_id = student_id
         self.interest_courses = interest_courses
+        self.favorite_school_subject = favorite_school_subject
         self.education = education
         self.started_studying_to_ENEM = started_studying_to_ENEM
         self.public_school = public_school
@@ -36,6 +41,15 @@ class Student():
         if 'telephone' in obj.keys():
             result['telephone'] = obj['telephone']
 
+        if 'guardian_name' in obj.keys():
+            result['guardian_name'] = obj['guardian_name']
+
+        if 'guardian_email' in obj.keys():
+                result['guardian_email'] = obj['guardian_email']
+
+        if 'guardian_telephone' in obj.keys():
+            result['guardian_telephone'] = obj['guardian_telephone']
+
         if 'age' in obj.keys():
             result['age'] = obj['age']
 
@@ -53,6 +67,9 @@ class Student():
 
         if 'state' in obj.keys():
             result['state'] = obj['state']
+
+        if 'favorite_school_subject' in obj.keys():
+            result['favorite_school_subject'] = obj['favorite_school_subject']
 
         if 'interest_course' in obj.keys():
             result['interest_course'] = obj['interest_course']
