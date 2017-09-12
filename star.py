@@ -3,7 +3,7 @@ class Star():
 		self.name = name
 		self.distance = distance
 		self.star_id = star_id
-	
+
 	def jsonify(obj):
 		name = obj['name']
 		distance = obj['distance']
