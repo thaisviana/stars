@@ -1,1 +1,1 @@
-web: gunicorn stars:app
+web: python app.py
