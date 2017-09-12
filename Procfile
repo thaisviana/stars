@@ -1,1 +1,1 @@
-web: gunicorn app:stars
+web: gunicorn stars:app
