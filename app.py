@@ -13,7 +13,7 @@ mongo = PyMongo(app)
 
 @app.route('/student', methods=['GET'])
 def get_all():
-    student = mongo.db.app76798915
+    student = mongo.db.heroku_v7l9xvr5
     output = []
     for s in student.find():
         output.append(Student.jsonify(s))
@@ -21,7 +21,7 @@ def get_all():
 
 @app.route('/student/', methods=['GET'])
 def get_one(student_id):
-    student = mongo.db.app76798915
+    student = mongo.db.heroku_v7l9xvr5
     s = student.find_one({'student_id': student_id})
     if s:
         return jsonify({'result': Student.jsonify(s)})
@@ -29,7 +29,7 @@ def get_one(student_id):
 
 @app.route('/student', methods=['POST'])
 def add():
-    student = mongo.db.app76798915
+    student = mongo.db.heroku_v7l9xvr5
 
     data = Student.jsonify(request.form)
     student_id = student.insert(data)
