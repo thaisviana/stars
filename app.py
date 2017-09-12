@@ -41,4 +41,4 @@ def add():
     return jsonify({'result': Student.jsonify(new_student)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
