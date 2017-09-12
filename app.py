@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask
 from flask import jsonify
 from flask import request
@@ -9,10 +7,8 @@ from student import Student
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'student'
-app.config['MONGO_URI'] = os.environ.get('MONGOHQ_URL')
-
 mongo = PyMongo(app)
+app.config.from_object('config.Config')
 
 @app.route('/student', methods=['GET'])
 def get_all():
