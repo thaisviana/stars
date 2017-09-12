@@ -7,8 +7,9 @@ from student import Student
 
 app = Flask(__name__)
 
-mongo = PyMongo(app)
 app.config.from_object('config.Config')
+
+mongo = PyMongo(app)
 
 @app.route('/student', methods=['GET'])
 def get_all():
