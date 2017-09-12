@@ -12,7 +12,7 @@ app.config.from_object('config.Config')
 
 @app.route('/student', methods=['GET'])
 def get_all():
-    student = mongo.db.student
+    student = mongo.db.app76798915
     output = []
     for s in student.find():
         output.append(Student.jsonify(s))
@@ -20,7 +20,7 @@ def get_all():
 
 @app.route('/student/', methods=['GET'])
 def get_one(student_id):
-    student = mongo.db.student
+    student = mongo.db.app76798915
     s = student.find_one({'student_id': student_id})
     if s:
         return jsonify({'result': Student.jsonify(s)})
@@ -28,7 +28,7 @@ def get_one(student_id):
 
 @app.route('/student', methods=['POST'])
 def add():
-    student = mongo.db.student
+    student = mongo.db.app76798915
 
     data = Student.jsonify(request.form)
     student_id = student.insert(data)
