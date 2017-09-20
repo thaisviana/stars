@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS, cross_origin
 from flask import jsonify
 from flask import request
 from flask_pymongo import PyMongo
@@ -6,12 +7,13 @@ from flask_pymongo import PyMongo
 from student import Student
 
 app = Flask(__name__)
-
+ors = CORS(app)
 app.config.from_object('config.Config')
 
 mongo = PyMongo(app)
 
 @app.route('/student', methods=['GET'])
+@cross_origin()
 def get_all():
     student = mongo.db.heroku_v7l9xvr5
     output = []
@@ -20,6 +22,7 @@ def get_all():
     return jsonify({'result': output})
 
 @app.route('/student/', methods=['GET'])
+@cross_origin()
 def get_one(student_id):
     student = mongo.db.heroku_v7l9xvr5
     s = student.find_one({'student_id': student_id})
@@ -28,6 +31,7 @@ def get_one(student_id):
     return jsonify({'result': "No such name"})
 
 @app.route('/student', methods=['POST'])
+@cross_origin()
 def add():
     student = mongo.db.heroku_v7l9xvr5
 

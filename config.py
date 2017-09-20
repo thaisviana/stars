@@ -11,6 +11,7 @@ class Config(object):
     TESTING = False
     DATABASE_URI = MONGO_URI
     SECRET_KEY = os.environ.get('SECRET_KEY', '53cr3t_k3y')
+    CORS_HEADERS= 'Content-Type'
 
 
 class ProductionConfig(Config):
