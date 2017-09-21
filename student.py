@@ -1,9 +1,10 @@
 class Student():
-    def __init__(self, name=None, last_name=None, email=None, age=None, telephone=None, interest_courses=None, student_id=None,
+    def __init__(self, anonymous_id, name=None, last_name=None, email=None, age=None, telephone=None, interest_courses=None, student_id=None,
                  education=None, started_studying_to_ENEM=None, public_school=None, school_evaluation=None, times_exam_taken=None,
                  daily_time_of_dedication=None, gender=None, family_income=None, cep=None, city=None, state=None, source_of_online_study=None,
                  guardian_name=None, guardian_email=None, guardian_telephone=None, favorite_school_subject=None):
         self.name = name
+        self.anonymous_id = anonymous_id
         self.last_name = last_name
         self.email = email
         self.telephone = telephone
@@ -29,6 +30,9 @@ class Student():
 
     def jsonify(obj):
         result = dict()
+        if 'anonymous_id' in obj.keys():
+            result['anonymous_id'] = obj['anonymous_id']
+
         if 'name' in obj.keys():
             result['name'] = obj['name']
 

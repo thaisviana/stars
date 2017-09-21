@@ -1,5 +1,3 @@
-import json
-
 from flask import Flask
 from flask_cors import CORS, cross_origin
 from flask import jsonify
@@ -21,17 +19,16 @@ def get_all():
     output = []
     for s in student.find():
         output.append(Student.jsonify(s))
-    print(output)
     return jsonify({'result': output})
 
-@app.route('/student/', methods=['GET'])
+@app.route('/student/<anonymous_id>', methods=['GET'])
 @cross_origin()
-def get_one(student_id):
+def get_one(anonymous_id):
     student = mongo.db.heroku_v7l9xvr5
-    s = student.find_one({'student_id': student_id})
+    s = student.find_one({'anonymous_id': anonymous_id})
     if s:
         return jsonify({'result': Student.jsonify(s)})
-    return jsonify({'result': "No such name"})
+    return jsonify({'result': "No such anonymous_id"})
 
 @app.route('/student', methods=['POST'])
 @cross_origin()
