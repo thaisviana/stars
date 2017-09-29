@@ -1,3 +1,6 @@
+import os
+
+
 class Student():
     def __init__(self, anonymous_id, name=None, last_name=None, email=None, age=None, telephone=None, interest_courses=None, student_id=None,
                  education=None, started_studying_to_ENEM=None, public_school=None, school_evaluation=None, times_exam_taken=None,
@@ -103,3 +106,13 @@ class Student():
             result['source_of_online_study'] = obj['source_of_online_study']
 
         return result
+
+    @classmethod
+    def compare_signature(cls, signature):
+        import hashlib
+        try:
+            secret = os.environ.get('SECRET_KEY', '')
+            m = hashlib.md5(bytes(secret, 'utf-8'))
+            return m.hexdigest() == signature
+        except:
+            return False
