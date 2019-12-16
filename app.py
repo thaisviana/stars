@@ -12,7 +12,7 @@ app.config.from_object('config.Config')
 
 mongo = PyMongo(app)
 
-
+#oi
 
 @app.route('/student/<anonymous_id>', methods=['GET'])
 @cross_origin()
