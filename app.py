@@ -13,15 +13,6 @@ app.config.from_object('config.Config')
 mongo = PyMongo(app)
 
 
-# @app.route('/student', methods=['GET'])
-# @cross_origin()
-# def get_all():
-#     student = mongo.db.heroku_v7l9xvr5
-#     output = []
-#     for s in student.find():
-#         output.append(Student.jsonify(s))
-#     return jsonify({'result': output})
-
 
 @app.route('/student/<anonymous_id>', methods=['GET'])
 @cross_origin()
